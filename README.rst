@@ -1,5 +1,5 @@
 ================
-Django Ratelimit
+This is a ratelimit pack based on Django Ratelimit
 ================
 
 Django Ratelimit provides a decorator to rate-limit views. Limiting can
