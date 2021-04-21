@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils.module_loading import import_string
 
-from django_ratelimit.exceptions import Ratelimited
+from JCoder_django_ratelimit.exceptions import Ratelimited
 
 
 class RatelimitMiddleware:

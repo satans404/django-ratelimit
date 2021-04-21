@@ -1,6 +1,6 @@
-import ipaddress
 import functools
 import hashlib
+import ipaddress
 import re
 import time
 import zlib
@@ -10,8 +10,7 @@ from django.core.cache import caches
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.module_loading import import_string
 
-from django_ratelimit import ALL, UNSAFE
-
+from JCoder_django_ratelimit import ALL, UNSAFE
 
 __all__ = ['is_ratelimited', 'get_usage']
 

@@ -1,12 +1,11 @@
 from setuptools import setup, find_packages
 
-from django_ratelimit import __version__
-
+from JCoder_django_ratelimit import __version__
 
 setup(
-    name='django-ratelimit',
+    name='JCoder-django-ratelimit',
     version=__version__,
-    description='Cache-based rate-limiting for Django.',
+    description='Cache-based rate-limiting for Django.Based on django_ratelimit',
     long_description=open('README.rst').read(),
     author='James Socol',
     author_email='me@jamessocol.com',

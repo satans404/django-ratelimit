@@ -7,11 +7,10 @@ from django.test.utils import override_settings
 from django.utils.decorators import method_decorator
 from django.views.generic import View
 
-from django_ratelimit.decorators import ratelimit
-from django_ratelimit.exceptions import Ratelimited
-from django_ratelimit.core import (get_usage, is_ratelimited,
-                                   _split_rate, _get_ip)
-
+from JCoder_django_ratelimit.core import (get_usage, is_ratelimited,
+                                          _split_rate, _get_ip)
+from JCoder_django_ratelimit.decorators import ratelimit
+from JCoder_django_ratelimit.exceptions import Ratelimited
 
 rf = RequestFactory()
 
@@ -227,7 +226,7 @@ class RatelimitTests(TestCase):
             return req
 
         @ratelimit(key='user_or_ip',
-                   rate='django_ratelimit.tests.callable_rate')
+                   rate='JCoder_django_ratelimit.tests.callable_rate')
         def view(request):
             return request.limited
 
@@ -256,7 +255,7 @@ class RatelimitTests(TestCase):
         assert view(_req(auth=True))
 
     def test_callable_key_path(self):
-        @ratelimit(key='django_ratelimit.tests.mykey', rate='1/m')
+        @ratelimit(key='JCoder_django_ratelimit.tests.mykey', rate='1/m')
         def view(request):
             return request.limited
 
@@ -609,7 +608,7 @@ class IpMetaTests(TestCase):
 
         assert '5.6.7.8' == _get_ip(req)
 
-    @override_settings(RATELIMIT_IP_META_KEY='django_ratelimit.tests.my_ip')
+    @override_settings(RATELIMIT_IP_META_KEY='JCoder_django_ratelimit.tests.my_ip')
     def test_path_to_ip_key_callable(self):
         req = rf.get('/')
         req.META['REMOTE_ADDR'] = '1.2.3.4'
