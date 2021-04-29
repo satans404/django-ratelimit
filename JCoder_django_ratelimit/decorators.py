@@ -24,7 +24,7 @@ def ratelimit(group=None, key=None, rate=None, method=ALL, block=False, callback
                 # raise Ratelimited()
                 if callback:
                     return callback
-                HttpResponse(status=403, content='Too Many Times')
+                return HttpResponse(status=403, content='Too Many Times')
             return fn(request, *args, **kw)
 
         return _wrapped
